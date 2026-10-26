@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You</title>
+
+    <!-- Link for css style sheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    
+    <div class="container">
+        <!-- Screen 1: The Closed Envelope -->
+        <div id="screen-envelope" class="screen-active">
+            <div class="envelope-wrapper" onclick="openEnvelope()">
+                <div class="envelope"></div>
+                <div class="envelope-text">Click to open</div>
+            </div>
+        </div>
+
+        <!-- Screen 2: The star heart animation canvas -->
+        <div id="screen-animation" class="screen">
+            <canvas id="animation" width="350" height="350">
+        </div>
+        <div class="loading-text">...Things are happening QUICKLY...</div>
+    </div>
+
+    <!-- Screen 3: The letter & message form -->
+    <div>
+        <div>
+            <h1>Sthandwa Sami</h1>
+            <p>Not a day goes by where you aren't on my mind I love you, Forever!...
+                Also I hope I didn't make you mad by being so quiet while making this for you...
+                I LOVE YOU APHIWE, My wIFE!!!
+            </p>
+
+            <form id="replyForm" class="reply-form" action="https://formspree.io/f/xdeeewwg" method="post">
+                <label for="message">Leave me a message if you ever want to..</label>
+                <textarea id="message" name="message" placeholder="Type your message here..."></textarea>
+                <button type="submit" class="btn-submit"></button>
+                <div id="successMessage" class="success-message">Message sent successfully!</div>
+            </form>
+        </div>
+    </div>
+    </div>
+
+    <!-- Link for seperate JavaScript file here -->
+     <script src="javascript.js"></script>
+
+</body>
+</html>
