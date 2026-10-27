@@ -1,0 +1,139 @@
+/* CSS RESET & GENERAL STYLES */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body {
+    background-color: #0b0f19;
+    color: #f3f4f6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+.screen.active {
+    display: flex;
+}
+
+@keyframes fadeIn {
+    frome { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.envelope-wrapper {
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.envelope-wrapper:hover {
+    transform: scale(1.05);
+}
+
+.envelope::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 140px solid transparent;
+    border-right: 140px solid transparent;
+    border-top: 100px solid #be185d;
+    transform-origin: top;
+    transition: transform 0.4s ease;
+}
+
+.envelope-wrapper.open .envelope::before {
+    transform: rotateX('180deg');
+    z-index: 10;
+}
+
+.envelope-text {
+    margin-top: 25px;
+    font-size: 1.1rem;
+    color: #f472b6;
+    letter-spacing: 1px;
+}
+
+#animationCanvas {
+    background: #000;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(168, 85, 247, 0.2);
+    max-width: 100%;
+}
+
+.loading-text {
+    margin-top: 15px;
+    color: #c084fc;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.letter-card {
+    background: rgba(31, 41, 55, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(236, 72, 153, 0.2);
+    padding: 30px;
+    border-radius: 16px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.letter-card h1 {
+    color: #f472b6;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.letter-card p {
+    line-height: 1.6;
+    color: #d1d5db;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.reply-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+    border-top: 1px solid rgba(255, 155, 255, 0.1);
+    padding-top: 20px;
+}
+
+.reply-form label {
+    font-size: 0.9rem;
+    color: #9ca3af;
+}
+
+.reply-form textarea {
+    width: 100%;
+    height: 90px;
+    background: rgba(17, 24, 38, 0.8);
+    border: 1px solid #4b5563;
+    border-radius: 8px;
+    p
+}
