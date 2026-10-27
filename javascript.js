@@ -27,9 +27,9 @@ function startHeartAnimation() {
     let currentFrame = 0;
 
     for (let i = 0; i < N; i++) {
-        const a = 2 * Math.PI *(i / N);
+        const a = 2 * Math.PI * (i / N);
         const base_x = 16 * Math.pow(Math.sin(a), 3);
-        const base_y = -(13 *Math.cos(a) - 5 * Math.cos(2*a) - 2 * Math.cos(3*a) - Math.cos(4*a));
+        const base_y = -(13 * Math.cos(a) - 5 * Math.cos(2 * a) - 2 * Math.cos(3 * a) - Math.cos(4 * a));
 
         const scale = 9;
         const tx = width / 2 + base_x * scale;
@@ -48,32 +48,31 @@ function startHeartAnimation() {
         ctx.strokeStyle = '#c084fc';
         ctx.lineWidth = 1;
         ctx.beginPath();
-        const angles = [0, Math.PI / 4, Math.PI / 2, (3 * Math.PI) / 4];
-        for (let angles of angles) {
-            const dx = (size + Math.cos(angle)) * 1.5;
-            const dy= (size * Math.sin(angle)) * 1.5;
-            ctx.moveTo(x - dx, y - dy);
-            ctx.lineTo(x + dx, y + dy);       
-        }
+
+        ctx.moveTo(x, y - size * 2);
+        ctx.lineTo(x, y + size * 2);
+        ctx.moveTo(x - size * 2, y);
+        ctx.lineTo(x + size * 2, y);
+
         ctx.stroke();
     }
 
     function animate() {
-        ctx.clearReact(0, 0, width, height,);
+        ctx.clearRect(0, 0, width, height,);
 
         const progress = Math.min(currentFrame / steps, 1);
         const eased = Math.sin(progress * Math.PI / 2)
 
         for (let star of stars) {
             const cx = star.sx + (star.tx - star.sx) * eased;
-            const cy = star.sy + (star.ty - star.sy) * eased;   
-            drawStar(cx, cy, star.size);         
+            const cy = star.sy + (star.ty - star.sy) * eased;
+            drawStar(cx, cy, star.size);
         }
 
         if (currentFrame < steps) {
             currentFrame++;
             requestAnimationFrame(animate);
-        } else{
+        } else {
             setTimeout(() => {
                 switchScreen('screen-animation', 'screen-letter');
             }, 1200);
@@ -81,3 +80,28 @@ function startHeartAnimation() {
     }
     animate();
 }
+
+// --- Step 3: Free form submission logic (AJAX) ---
+const form = document.getElementById('replyForm');
+
+form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const data = new FormData(form);
+
+    try {
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: data,
+            headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+            form.reset();
+            document.getElementById('successMessage').style.display = 'block';
+        } else {
+            alert('Oops! Baby you made a mistake with submitting your form..');
+        }
+    } catch (error) {
+        alert('Network error...Its the damn wifi again')
+    }
+});
