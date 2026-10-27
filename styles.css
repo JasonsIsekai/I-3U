@@ -135,5 +135,36 @@ body {
     background: rgba(17, 24, 38, 0.8);
     border: 1px solid #4b5563;
     border-radius: 8px;
-    p
+    padding: 10px;
+    color: #f3f4f6;
+    resize: none;
+    font-size: 0.95rem;
+}
+
+.reply-form textarea:focus{
+    outline: none;
+    border-color: #db2777;
+}
+
+.btn-submit {
+    background: #db2777;
+    color: #f3f4f6;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-submit:hover {
+    background: #be185d;
+}
+
+.success-msg {
+    display: none;
+    color: #34d399;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.95rem;
 }
