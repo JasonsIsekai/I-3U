@@ -129,6 +129,12 @@ body {
     text-align: center;
 }
 
+.letter-card h2 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #be185d;
+}
+
 .letter-card p {
     line-height: 1.6;
     color: #d1d5db;
